@@ -1,0 +1,61 @@
+﻿<Window x:Class="Language.ClientServise"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Language"
+        mc:Ignorable="d" Icon="/resources/Logo.ico"
+        Title="Посещения" Height="650" Width="500"
+        Background="#FFE7FABF"
+        ResizeMode="NoResize">
+    
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Comic sans MS"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <materialDesign:Card Grid.Row="0"
+                             VerticalAlignment="Top"
+                             Margin="5"
+                                 Background="#FF04A0FF"
+                                 Grid.Column="0" UniformCornerRadius="25"
+                                 Height="100"  Width="400">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Resources/Logo.png"/>
+                <TextBlock Text="Лангуаге" FontSize="68"></TextBlock>
+            </StackPanel>
+        </materialDesign:Card>
+
+        <ListBox Width="450" Height="500"
+                 VerticalAlignment="Bottom"
+                 Name="ClientServiceLB"
+                 FontFamily="Comic sans MS">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <StackPanel Width="400">
+                            <TextBlock FontSize="20" >
+                                <Run Text="Клиент:"></Run>
+                                <Run Text="{Binding Path=ClientID}"></Run>
+                            </TextBlock>
+                            <TextBlock FontSize="20">
+                                <Run Text="Дата и время:"></Run>
+                                <Run Text="{Binding Path=StartTime}"></Run>
+                            </TextBlock>
+                            <TextBlock FontSize="20">
+                                <Run Text="Услуга:"></Run>
+                                <Run Text="{Binding Path=ServiceID}"></Run>
+                            </TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+    </Grid>
+</Window>
